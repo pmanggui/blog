@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %} <!-- base.html 불러오기 -->
+
+{% block contents %} <!-- contents 지정하기-->
+<body>
+    <br>
+    <div class="container">
+        <h1> 자세한 본문 내용입니다 </h1>
+        <br><br>
+
+        <h1> 제목 : {{blog.title}} </h1>
+        <p> 작성 날짜 : {{blog.pub_date}} </p>
+        <p> 자세한 본문 : {{blog.body}}</p>    
+    </div>
+    <br>
+    <div class = "container">
+        <a href="{% url 'delete' blog.id %}" class="card-link" >Delete</a>
+    </div>
+    <br>
+    <div class = "container">
+        {% csrf_token %}
+        <a href="{% url 'update' blog.id %}" class="card-link" >Update</a>
+    </div>
+
+    <!--css -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+{% endblock %}
+</html>
